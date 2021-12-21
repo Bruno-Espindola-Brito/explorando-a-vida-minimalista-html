@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="author" content="Bruno Espindola de Brito">
+    <meta name="keywords" content="HTML, CSS, Javascript">
+    <meta name="description" content="Projeto final Html,CSS,javascript / Senac-RS">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+    <title>Senac html/css/js final project</title>
+    <script type="text/javascript">
+        
+        function validar(){
+			var nome = formuser.nome.value;
+			var email = formuser.email.value;
+			var telefone = formuser.telefone.value;
+			var endereco = formuser.endereco.value;
+			var senha = formuser.senha.value;
+			
+			if(nome == "" || nome.length <= 5){
+				alert('Informe seu nome completo!');
+				formuser.nome.focus();
+				return false;	
+			}
+			
+			if(email == "" || email.indexOf('@') == -1){
+				alert('Informe e-mail válido');
+				formuser.email.focus();
+				return false;
+			}
+			
+			if(telefone == ""){
+				alert('Informe seu telefone!');
+				formuser.telefone.focus();
+				return false;
+			}
+			
+			if(endereco == ""){
+				alert('Informe seu endereço!');
+				formuser.endereco.focus();
+				return false;
+			
+			}
+			
+			if(senha == "" || senha.length <= 5){
+				alert('Informe senha com no minimo 6 caracteres!');
+				formuser.senha.focus();
+				return false;
+			}
+				
+		}
+		
+			function mascara(o,f){
+				v_obj=o
+				v_fun=f
+				setTimeout("execmascara()",1)
+			}
+			function execmascara(){
+				v_obj.value=v_fun(v_obj.value)
+			}
+			function mtel(v){
+				v=v.replace(/\D/g,"");             /*Remove tudo o que não é dígito*/
+				v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); /*Coloca parênteses em volta dos dois primeiros dígitos*/
+				v=v.replace(/(\d)(\d{4})$/,"$1-$2");    /*Coloca hífen entre o quarto e o quinto dígitos*/
+				return v;
+			}
+			function id( el ){
+				return document.getElementById( el );
+			}
+			window.onload = function(){
+				id('telefone').onkeypress = function(){
+					mascara( this, mtel );
+				}
+			}
+			
+			function fMasc(objeto, mascara) {
+				obj=Objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			
+			function fMasEx(){
+				obj.value=masc(obj.value)
+			}
+			
+		
+				
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container container-flex">
+            <div class="site-title">
+                <h1>Vivendo a vida simples</h1>
+                <p class="subtitle">Explorando o minimalismo na vida</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index_pt.html">Home</a></li>
+                    <li><a href="recent_posts_pt.html">Recentes</a></li>
+                    <li><a href="gallery_pt.html">Galeria</a></li>
+                    <li><a href="help_us_pt.html" class="current-page">Ajude-nos</a></li>
+                    <li><a href="about_me_pt.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container container-flex">
+            <main role="main">
+                
+                <form name="formuser" action="#" method="#">
+		
+                    <fieldset>
+                        <legend> Formulario:</legend>
+                        <p>Nome Completo:<input type="text" name="nome" maxlength="40" size="40"></p>
+                        <p>E-mail:<input type="text" name="email" maxlength="40" size="35"></p>
+                        <p>Telefone:<input type="text" name="telefone" id="telefone" maxlength="15" size="20"></p>
+                        <p>Endereço:<input type="text" name="endereco" maxlength="40" size="40"></p>
+                        <p>Senha:<input type="password" name="senha" maxlength="8" size="8"></p>
+                        
+                        <label class="question"><Strong>Genero:</Strong></label><br>
+                        
+                        <div id="gender">
+                            <label>
+                                <input type="radio" name="gender">Feminino
+                            </label><br>
+                            <label>
+                                <input type="radio" name="gender">Maasculino
+                            </label><br>
+                            <label>
+                                <input type="radio" name="gender">Nenhum dos anteriores
+                            </label>
+                        </div>
+
+                        <label class="question"><Strong>Qual a sua idade?:</Strong></label><br>
+                        
+                        <div id="how old">
+                            <label>
+                                <input type="radio" name="age">11 - 16 anos
+                            </label><br>
+                            <label>
+                                <input type="radio" name="age">17 - 25 anos
+                            </label><br>
+                            <label>
+                                <input type="radio" name="age">26+ anos
+                            </label>
+                        </div>
+                        
+                        <label class="question"><Strong>Quais atividades você gosta de fazer?:</Strong></label><br>
+                        
+                        <div id="activities">
+                            <label>
+                                <input type="checkbox" name="VG">Jogar video games
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="Camp">Acampar
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="Sport">Praticar esportes
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="Book">Ler livros
+                            </label>
+                        </div>
+
+                        <label class="question"><Strong>Você se considera uma pessoa minimalista?:</Strong></label><br>
+
+                        <div id="min">
+                            <label>
+                                <input type="radio" name="min">Sim!
+                            </label><br>
+                            <label>
+                                <input type="radio" name="min">Não!
+                            </label><br>
+                            <label>
+                                <input type="radio" name="min">Uhm..não sei..
+                            </label>
+                        </div>
+                        
+                        
+                        <br><input type="submit" onclick="return validar()">
+                        
+                                        
+                    </fieldset>
+                
+                </form>
+                
+                
+            </main>
+            <aside class="sidebar">
+
+                <div class="sidebar-widget">
+                    <h2 class="widget-title">SOBRE</h2>
+                    <img src="../img/MOTOROLA.png" alt="#" class="widget-image">
+                    <p class="widget-body">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h2 class="widget-title">PUBLICAÇÕES RECENTES</h2>
+                    <div class="widget-recent-post">
+                        <h3 class="widget-recent-post-title">Titulo aqui</h3>
+                        <img src="../img/Minimal_Living.webp" alt="" class="widget-image">
+                    </div>
+                    <div class="widget-recent-post">
+                        <h3 class="widget-recent-post-title">Titulo aqui</h3>
+                        <img src="../img/blogpost_minimalistlifestyle.png" alt="" class="widget-image">
+                    </div>
+                    <div class="widget-recent-post">
+                        <h3 class="widget-recent-post-title">Titulo aqui</h3>
+                        <img src="../img/Minimalist-Living.webp" alt="" class="widget-image">
+                    </div>
+                </div>
+            </aside>
+            
+    </section>
+    <footer>
+        <p><strong>Vivendo a vida simples</strong></p>
+        <p>Copyright 2021</p>
+        <a class="lang" href="help_us_pt.html">Português</a>
+        <a class="lang" href="help_us.html">Inglês</a>
+    </footer>   
+</body>
+</html>
